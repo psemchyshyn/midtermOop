@@ -6,7 +6,7 @@ import com.sendgrid.helpers.mail.objects.Content;
 public class NewYearGreetingCode implements MailCode {
     @Override
     public String header(Client client) {
-        return "Happy New Year";
+        return "Happy New Year " + client.getName();
     }
 
     @Override

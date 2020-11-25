@@ -4,7 +4,7 @@ import com.sendgrid.Response;
 import lombok.Getter;
 
 @Getter
-public class Client{
+public class Client implements Subject{
     private static int ID_POINTER = 0;
     private int id;
     private String name;

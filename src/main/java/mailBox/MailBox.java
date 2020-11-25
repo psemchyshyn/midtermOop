@@ -1,16 +1,16 @@
 package mailBox;
 
 import mail.MailInfo;
-import sender.MailSender;
+import sender.Sender;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MailBox {
     private List<MailInfo> infos;
-    private MailSender sender;
+    private Sender sender;
 
-    public MailBox(MailSender sender) {
+    public MailBox(Sender sender) {
         infos = new ArrayList<>();
         this.sender = sender;
     }

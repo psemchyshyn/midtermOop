@@ -6,7 +6,7 @@ import com.sendgrid.helpers.mail.objects.Content;
 public class DiscountNotificationCode implements MailCode {
     @Override
     public String header(Client client) {
-        return "New Discount available";
+        return "New Discount available for " + client.getName();
     }
 
     @Override

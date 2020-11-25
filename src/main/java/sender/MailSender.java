@@ -8,16 +8,15 @@ import mail.MailInfo;
 
 import java.io.IOException;
 
-public class MailSender {
-    private SendGrid sender;
+public class MailSender extends SendGrid implements Sender{
 
-    public MailSender(SendGrid sender) {
-        this.sender = sender;
+    public MailSender(String key) {
+        super(key);
     }
 
     public void sendMail(MailInfo info) {
         try {
-            Response response = sender.api(buildRequest(info));
+            Response response = api(buildRequest(info));
             info.getClient().update(response);
         } catch (IOException e) {
             System.out.println("Couldn't send mail to " + info.getClient().getEmail() +

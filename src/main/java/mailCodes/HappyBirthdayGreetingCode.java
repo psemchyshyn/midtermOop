@@ -6,7 +6,7 @@ import client.Client;
 public class HappyBirthdayGreetingCode extends Content implements MailCode {
     @Override
     public String header(Client client) {
-        return "Happy birthday";
+        return "Happy birthday " + client.getName();
     }
 
     @Override
