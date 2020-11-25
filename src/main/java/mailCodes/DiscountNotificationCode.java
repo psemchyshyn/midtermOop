@@ -2,8 +2,17 @@ package mailCodes;
 
 import client.Client;
 import com.sendgrid.helpers.mail.objects.Content;
+import lombok.Singular;
 
-public class DiscountNotificationCode implements MailCode {
+
+// Singleton
+public class DiscountNotificationCode extends Content implements MailCode {
+    private static DiscountNotificationCode cd;
+
+    private DiscountNotificationCode() {
+
+    }
+
     @Override
     public String header(Client client) {
         return "New Discount available for " + client.getName();
@@ -17,5 +26,13 @@ public class DiscountNotificationCode implements MailCode {
     @Override
     public String description() {
         return "Discount greeting";
+    }
+
+
+    public static DiscountNotificationCode getInstance() {
+        if (cd == null) {
+            cd = new DiscountNotificationCode();
+        }
+        return cd;
     }
 }

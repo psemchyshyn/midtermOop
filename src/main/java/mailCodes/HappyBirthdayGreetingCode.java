@@ -4,6 +4,12 @@ import com.sendgrid.helpers.mail.objects.Content;
 import client.Client;
 
 public class HappyBirthdayGreetingCode extends Content implements MailCode {
+//    private static HappyBirthdayGreetingCode cd;
+
+//    public HappyBirthdayGreetingCode() {
+//
+//    }
+
     @Override
     public String header(Client client) {
         return "Happy birthday " + client.getName();
@@ -18,4 +24,11 @@ public class HappyBirthdayGreetingCode extends Content implements MailCode {
     public String description() {
         return "Happy birthday greeting";
     }
+
+//    public static HappyBirthdayGreetingCode getInstance() {
+//        if (cd == null) {
+//            cd = new HappyBirthdayGreetingCode();
+//        }
+//        return cd;
+//    }
 }
