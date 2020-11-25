@@ -1,19 +1,18 @@
 package mailBox;
 
-import com.sendgrid.SendGrid;
-import message.MailInfo;
+import mail.MailInfo;
 import sender.MailSender;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MailBox {
-    private static MailBox mailBox;
     private List<MailInfo> infos;
     private MailSender sender;
 
-    private MailBox(String key) {
+    public MailBox(MailSender sender) {
         infos = new ArrayList<>();
+        this.sender = sender;
     }
 
     public void addMailInfo(MailInfo info) {
@@ -25,12 +24,4 @@ public class MailBox {
             sender.sendMail(info);
         }
     }
-
-    public static MailBox createMailBox(String key) {
-        if (mailBox == null) {
-            mailBox = new MailBox(key);
-        }
-        return mailBox;
-    }
-
 }

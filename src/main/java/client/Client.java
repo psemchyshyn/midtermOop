@@ -1,21 +1,28 @@
 package client;
 
-import message.MailInfo;
+import com.sendgrid.Response;
+import lombok.Getter;
 
-public class Client implements Subject {
-    private int id = 0;
+@Getter
+public class Client{
+    private static int ID_POINTER = 0;
+    private int id;
     private String name;
     private int age;
     private String sex;
+    private String email;
 
-    public Client(int id, String name, int age, String sex) {
-        this.id = id;
+    public Client(String name, int age, String sex, String email) {
+        this.id = ID_POINTER++;
         this.name = name;
         this.age = age;
         this.sex = sex;
+        this.email = email;
     }
 
-    public void update(String message) {
-        System.out.println("Message is sent!("  + message + ")");
+    public void update(Response response) {
+        System.out.println(response.getBody());
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getHeaders());
     }
 }
