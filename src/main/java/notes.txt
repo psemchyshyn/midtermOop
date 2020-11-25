@@ -1,0 +1,5 @@
+MailBox - create factory to manage with different senders types
+Types of Mails - separate classes
+Accordingly - different types of senders
+
+p.semchyshyn434015
